@@ -1,0 +1,21 @@
+parameters:
+- name: 'secureFile'
+  type: string
+
+- name: 'retryCount'
+  type: string
+  default: '8'
+
+- name: 'socketTimeout'
+  type: string
+  default: ''
+
+steps:
+
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: '${{parameters.secureFile}}'
+    retryCount: '${{parameters.retryCount}}'
+    socketTimeout: '${{parameters.socketTimeout}}'
+  name: DownloadSecureFile
+  displayName: "Download Secure File Task"
